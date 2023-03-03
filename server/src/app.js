@@ -1,3 +1,4 @@
+import express, { json } from "express";
 import userRouter from "./routes/user.router.js";
 import { errorHandler } from "./errors/error.js";
 import { routeError } from "./errors/route.error.js";

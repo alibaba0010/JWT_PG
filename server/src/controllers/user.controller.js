@@ -9,7 +9,7 @@ export const addNewUser = async (req, res) => {
   // check if email exists
   const checkEmail = await pool.query(checkEmailExists, [email]);
 
-  if (checkEmail.rows.length === 0) {
+  if (checkEmail.rows.length) {
     const salt = await bcrypt.genSalt(10);
     password = await bcrypt.hash(password, salt);
     const user = await pool.query(addUser, [name, email, password]);
